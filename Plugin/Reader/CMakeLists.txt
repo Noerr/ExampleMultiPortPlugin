@@ -1,0 +1,5 @@
+vtk_module_add_module(ExampleMultiPortReaderCore
+  FORCE_STATIC
+  CLASSES vtkExampleMultiPortReader)
+
+paraview_add_server_manager_xmls(XMLS ExampleMultiPortReader.xml)

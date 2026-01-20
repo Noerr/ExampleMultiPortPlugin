@@ -25,14 +25,11 @@ make -j4
 
 ## Testing
 
-1. Generate test data (20 frames, dt=0.125):
-   ```bash
-   ./generate_test_data.sh /tmp/test_data
-   ```
+1. Load the plugin in ParaView
 
-2. Load the plugin in ParaView
+2. Open the test files: File → Open → select all `.exmp` files in `TestData/`
 
-3. Open the `.exmp` files (select multiple for time series)
+   (Or generate fresh data: `./generate_test_data.sh /tmp/test_data`)
 
 4. Verify:
    - Reader has 2 output ports (Square, Circle)

@@ -13,14 +13,11 @@ make -j4
 ## Test Commands
 
 ```bash
-# Generate 20 test frames
-./generate_test_data.sh /tmp/test_data
-
-# Verify with pvpython
+# Verify with pvpython (using included TestData)
 pvpython << 'EOF'
 import paraview.simple as pv
 pv.LoadPlugin('build/lib/ExampleMultiPortReader/ExampleMultiPortReader.so')
-files = [f'/tmp/test_data/data_{i:04d}.exmp' for i in range(20)]
+files = [f'TestData/data_{i:04d}.exmp' for i in range(20)]
 reader = pv.ExampleMultiPortReader(FileName=files)
 reader.UpdatePipeline()
 vtk_obj = reader.GetClientSideObject()
@@ -53,6 +50,8 @@ ExampleMultiPortPlugin/
 │       ├── vtkExampleMultiPortReader.h
 │       ├── vtkExampleMultiPortReader.cxx
 │       └── ExampleMultiPortReader.xml
+├── TestData/
+│   └── data_*.exmp (20 frames, t=0.0 to 2.375)
 ├── generate_test_data.sh
 └── README.md
 ```
